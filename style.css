@@ -4,27 +4,39 @@
   }
   
   body {
-    font-family: helvetica, arial, sans-serif;
+    font-family: 'Gasoek One', sans-serif;
     margin: 25px;
+    background-image: linear-gradient(270deg, #f0bdd9, #eea69d);
   }
   
   main {
     display:block;
     height:175px;
   }
-  
-  header {
-    border-bottom: 1px solid black;
+
+  #bgVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
   }
+  
+   /*header {
+    border-bottom: 1px solid black; 
+  }*/
   
   h1 {
-    font-weight: bold;
-    color: #000;
+    /*font-weight: bold;*/
+    font-size: 3rem;
+    color: #594D4D;
   }
   
-  .bold {
+  /*.bold {
     font-weight: bold;
-  }
+  } */
   
   p {
     max-width: 600px;
@@ -46,7 +58,12 @@
   }
   
   .pet-image {
-    height:250px;
+    height: 28rem;
+    width: auto;
+  }
+
+  .pet-image.jump {
+    transform: translateY(-40px);
   }
   
   .dashboard div {
@@ -54,11 +71,15 @@
   }
   
   .pet-image-container {
-    float:left;
-    padding:10px;
+    position: absolute;
+    top: 47%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    z-index: 1;   /* above background */
+    padding: 0;
   }
   
-  .dashboard {
+  /*.dashboard {
     float:left;
     padding:20px;
   }
@@ -73,10 +94,116 @@
       text-align: center;
       display: inline-block;
       float: left;
-    font-size:15px;
-    background-color: #1e2835;
-    border-color: #404853;
-    cursor:pointer;
-    background-image: linear-gradient(to bottom,rgba(246,246,246,.1)0%,rgba(30,40,53,0)66%);
-    color: #fafafa;
+      font-size:15px;
+      background-color: #f5e3f0;
+      cursor:pointer;
+      color: black;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  } */
+
+  .navbar {
+    position: fixed;
+    width: 20%;
+    height: auto;
+    bottom: 2rem;
+    left: 2rem;
+    background-color: #594D4D;
+    padding: 0.8rem 1.5rem;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+  .navbar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fcb6d9;
+    font-size: 1.6rem;
+    transition: transform 0.2s ease, color 0.2s ease;
   }
+
+  .navbar button:hover {
+    transform: scale(1.1);
+    color: #ffe4ef;
+  }
+
+  .stats {
+    position: fixed;
+    right: 3rem;
+    bottom: 3rem;
+    background-color: rgba(244, 185, 211, 0.80);
+    border-radius: 0 1.5rem 1.5rem 1.5rem;
+    padding: 1.5rem 2rem;
+    width: 18rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    font-family: 'Gasoek One', sans-serif;
+    color: #594D4D;
+}
+
+.stats h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.7rem;
+  font-weight: normal;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.icon {
+  font-size: 1.4rem;
+  width: 2rem;
+  text-align: center;
+}
+
+.stat-bar {
+  flex: 1;
+  background: #fffce6;               /* soft yellowish tone */
+  height: 1.2rem;
+  border-radius: 1rem;
+  position: relative;
+  box-shadow: inset 0 3px 5px rgba(0,0,0,0.1);
+}
+
+.fill {
+  position: absolute;
+  height: 100%;
+  background-color: #fcb6d9;         /* light pink fill */
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: width 0.5s ease-in-out;
+}
+
+.food-drop {
+  position: fixed;
+  top: -50px;
+  width: 60px;
+  pointer-events: none;   /* don’t block clicks */
+  animation: fallDown 2.5s linear forwards;
+  z-index: 20;
+}
+
+@keyframes fallDown {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+
+

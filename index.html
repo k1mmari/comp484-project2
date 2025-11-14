@@ -7,37 +7,63 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+          integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+          crossorigin="anonymous"></script>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
   <body>
     <header>
-      <h1>
-        This is your Giga Pet
-      </h1>
+      <h1>The Pet</h1>
     </header>
 
     <main>
+      <video autoplay muted loop id="bgVideo">
+  <source src="./images/bg.mp4" type="video/mp4">
+</video>
       <section class="pet-image-container">
          <!-- Replace pet image with your own pet image -->
-        <img class="pet-image" src="https://cdn.glitch.com/3aa98e05-3216-497c-a251-210ae4713a83%2Fhound.jpg?1541715339220">
+        <img class="pet-image" src="./images/idle.gif" alt="A happy pet">
       </section>
-      <section class="dashboard">
-        <div>Name: <strong><span class="name"></span></strong></div>
-        <div>Weight: <strong><span class="weight"></span> pounds</strong></div>
-        <div>Happiness: <strong><span class="happiness"></span> tail wags (per min)</strong></div>
-        <div class="button-container">
-          <button class="treat-button">
-            Treat
-          </button>
-          <button class="play-button">
-            Play
-          </button>
-          <button class="exercise-button">
-            Exercise
-          </button>
-        </div>
-      </section>
+        <section class="stats">
+  <h2>Stats:</h2>
+
+  <div class="stat">
+    <span class="icon"><i class="fa-sharp fa-regular fa-face-laugh-beam"></i></span>
+    <div class="stat-bar">
+      <div class="fill" style="width: 15%;"></div>
+    </div>
+  </div>
+
+  <div class="stat">
+    <span class="icon"><i class="fa-solid fa-weight-scale"></i></span>
+    <div class="stat-bar">
+      <div class="fill" style="width: 45%;"></div>
+    </div>
+  </div>
+
+  <div class="stat">
+    <span class="icon"><i class="fa-solid fa-heart"></i></span>
+    <div class="stat-bar">
+      <div class="fill" style="width: 25%;"></div>
+    </div>
+  </div>
+</section>
+
+        <section>
+          <nav class="navbar">
+            <button class="pet-button"><i class="fa-solid fa-hand"></i></button>
+            <button class="treat-button"><i class="fa-solid fa-utensils"></i></button>
+            <button class="play-button"><i class="fa-solid fa-play"></i></button>
+            <button class="exercise-button"><i class="fa-solid fa-dumbbell"></i></button>
+          </nav>
+        </section>
     </main>
 
     <!-- Your web-app is https, so your scripts need to be too -->
