@@ -27,40 +27,45 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       // Increase pet weight
       pet_info.happiness += 10;
       pet_info.weight += 5;
-      showMessage("Yum! That was tasty 🥕");
-      dropFood();
+      showMessage("was the brain yours? that's why I'm not full");
+      dropImages(["pancakes.png", "apple.png", "brain.png"]);
       checkAndUpdatePetInfoInHtml();
     }
 
-    function dropFood() {
-      const foods = ["pancakes.png", "brain.png", "apple.png"];  // your image names
-      const numDrops = 15;  // how many fall each click
-
+    function dropImages(images, numDrops = 30) {
       for (let i = 0; i < numDrops; i++) {
-        const randomFood = foods[Math.floor(Math.random() * foods.length)];
-        const $food = $("<img>")
-        .attr("src", "./images/" + randomFood)
+        const randomImg = images[Math.floor(Math.random() * images.length)];
+        const $img = $("<img>")
+        .attr("src", "./images/" + randomImg)
         .addClass("food-drop");
 
-      // random horizontal position
-      const randomLeft = Math.random() * window.innerWidth;
-      $food.css("left", randomLeft + "px");
+        // random horizontal position
+        const randomLeft = Math.random() * window.innerWidth;
+        $img.css("left", randomLeft + "px");
 
-      $("body").append($food);
+        const randomDelay = Math.random() * 1.5; // 0–1.5 seconds
+        $img.css("animation-delay", randomDelay + "s");
 
-      // remove after animation ends
-      setTimeout(() => {
-        $food.remove();
-      }, 2500);
+        $("body").append($img);
+
+        // remove after animation ends
+        setTimeout(() => {
+          $img.remove();
+          }, 3000 + randomDelay * 1000);
+      }
     }
-  }
+
     
     function clickedPlayButton() {
       // Increase pet happiness
       // Decrease pet weight
+      const minWeight = 10;
+      pet_info.weight = Math.max(minWeight, pet_info.weight - 5);
+      
       pet_info.happiness += 15;
-      pet_info.weight -= 5;
-      showMessage("That was fun! 🐇💨");
+      
+      showMessage("More >:C");
+      dropImages(["bear.png", "plane.png", "book.png"]);
       checkAndUpdatePetInfoInHtml();
     }
     
@@ -69,21 +74,20 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       // Decrease pet weight
       const minWeight = 10;
 
-      if (pet_info.weight <= minWeight) {
-        showMessage("No, you go exercise");
-        pet_info.weight = minWeight; 
-      } else {
-        pet_info.happiness -= 10;
-        pet_info.weight -= 5;
-        showMessage("Phew... what a workout! 😅");
-  }
+      pet_info.weight = Math.max(minWeight, pet_info.weight - 5);
+
+      // always decrease happiness
+      pet_info.happiness -= 10;
+      showMessage("Now YOU go exercise");
+      dropImages(["jordans.png", "tennis.png", "volleball.png"]);
       checkAndUpdatePetInfoInHtml();
     }
 
     function clickedPetButton() {
       pet_info.happiness += 10;
       pet_info.love += 10;
-      showMessage("Aww... I love cuddles! 💗🐰");
+      showMessage("Don't get too touchy");
+      dropImages(["heart.png", "balloon.png", "star.png"]);
       checkAndUpdatePetInfoInHtml();
     }
   
