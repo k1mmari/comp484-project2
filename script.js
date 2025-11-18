@@ -1,5 +1,4 @@
 $(function() { // Makes sure that your function is called once all the DOM elements of the page are ready to be used.
-    
   $(".pet-image").on("click", function () {
     const $pet = $(this);
     $pet.addClass("jump");
@@ -36,7 +35,10 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       for (let i = 0; i < numDrops; i++) {
         const randomImg = images[Math.floor(Math.random() * images.length)];
         const $img = $("<img>")
+        // .attr() gets the value of an attribute for the first element
+        // in the set of matched elements or set one or more attributes for every matched element.
         .attr("src", "./images/" + randomImg)
+         // .addClass() adds the specified class(es) to each element in the set of matched elements. 
         .addClass("food-drop");
 
         // random horizontal position

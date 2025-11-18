@@ -72,7 +72,7 @@
   
   .pet-image-container {
     position: absolute;
-    top: 47%;
+    top: 43%;
     left: 65%;
     transform: translate(-50%, -50%);
     z-index: 1;   /* above background */
@@ -166,7 +166,7 @@
 
 .stat-bar {
   flex: 1;
-  background: #fffce6;               /* soft yellowish tone */
+  background: #fffce6;
   height: 1.2rem;
   border-radius: 1rem;
   position: relative;
@@ -176,7 +176,7 @@
 .fill {
   position: absolute;
   height: 100%;
-  background-color: #fcb6d9;         /* light pink fill */
+  background-color: #fcb6d9;
   border-radius: 1rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.15);
   transition: width 0.5s ease-in-out;
@@ -186,7 +186,7 @@
   position: fixed;
   top: -50px;
   width: 60px;
-  pointer-events: none;   /* don’t block clicks */
+  pointer-events: none;
   animation: fallDown 2.5s linear forwards;
   z-index: 20;
 }
