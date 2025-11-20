@@ -25,6 +25,16 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       weight: 10,
       happiness: 20,
       love: 10};
+
+    const PET_STATES = {
+      idle: "./images/idle.gif",
+      wink: "./images/wink.gif",
+      angry: "./images/angy.gif"
+    };
+
+    function setPetState(stateName) {
+      $(".pet-image").attr("src", PET_STATES[stateName]);
+    }
   
     function clickedTreatButton() {
       // Increase pet happiness
@@ -33,6 +43,9 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       pet_info.weight += 5;
       showMessage("was the brain yours? that's why I'm not full");
       dropImages(["pancakes.png", "apple.png", "brain.png"]);
+      setPetState("wink");
+      setTimeout(() => setPetState("idle"), 800);
+
       checkAndUpdatePetInfoInHtml();
     }
     
@@ -46,6 +59,9 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       
       showMessage("More >:C");
       dropImages(["bear.png", "plane.png", "book.png"]);
+      setPetState("wink");
+      setTimeout(() => setPetState("idle"), 800);
+
       checkAndUpdatePetInfoInHtml();
     }
     
@@ -58,6 +74,9 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       pet_info.happiness -= 10;
       showMessage("Now YOU go exercise");
       dropImages(["jordans.png", "tennis.png", "volleball.png"]);
+      setPetState("angry");
+      setTimeout(() => setPetState("idle"), 1000);
+
       checkAndUpdatePetInfoInHtml();
     }
 
@@ -68,6 +87,9 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
       pet_info.love += 10;
       showMessage("Don't get too touchy");
       dropImages(["heart.png", "balloon.png", "star.png"]);
+      setPetState("wink");
+      setTimeout(() => setPetState("idle"), 1000);
+
       checkAndUpdatePetInfoInHtml();
     }
 
