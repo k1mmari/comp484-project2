@@ -3,7 +3,7 @@
   <head>
     <title>Your Giga Pet</title>
     <meta name="description" content="A cool thing made with Glitch">
-    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <link rel="icon" href="./images/x-icon.png" type="x-icon/png">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,6 +24,7 @@
     </header>
 
     <main>
+        <!-- bg video on the loop -->
       <video autoplay muted loop id="bgVideo">
         <source src="./images/bg.mp4" type="video/mp4">
       </video>
@@ -31,23 +32,25 @@
         <img class="pet-image" src="./images/idle.gif" alt="A happy pet">
       </section>
 
+      <!-- stats panel -->
       <section class="stats">
         <h2>Stats:</h2>
-        <!---- happiness -->
+        <!-- happiness -->
         <div class="stat">
+          <!-- span so icon and the stat-bar can be on the same line -->
           <span class="icon"><i class="fa-sharp fa-regular fa-face-laugh-beam"></i></span>
             <div class="stat-bar">
               <div class="fill" style="width: 15%;"></div>
             </div>
           </div>
-          <!---- weight -->
+          <!-- weight -->
           <div class="stat">
             <span class="icon"><i class="fa-solid fa-weight-scale"></i></span>
               <div class="stat-bar">
                 <div class="fill" style="width: 45%;"></div>
               </div>
             </div>
-
+            <!-- love -->
             <div class="stat">
               <span class="icon"><i class="fa-solid fa-heart"></i></span>
               <div class="stat-bar">
@@ -55,7 +58,7 @@
               </div>
             </div>
         </section>
-
+        <!-- interaction buttons as menu -->
         <section>
           <nav class="navbar">
             <button class="pet-button"><i class="fa-solid fa-hand"></i></button>

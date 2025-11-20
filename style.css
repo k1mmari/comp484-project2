@@ -20,6 +20,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    /* fill the entire background even if you need to cut off parts */
     object-fit: cover;
     z-index: -1;
   }
@@ -145,65 +146,67 @@
     color: #594D4D;
 }
 
-.stats h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.7rem;
-  font-weight: normal;
-}
-
-.stat {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 1rem;
-}
-
-.icon {
-  font-size: 1.4rem;
-  width: 2rem;
-  text-align: center;
-}
-
-.stat-bar {
-  flex: 1;
-  background: #fffce6;
-  height: 1.2rem;
-  border-radius: 1rem;
-  position: relative;
-  box-shadow: inset 0 3px 5px rgba(0,0,0,0.1);
-}
-
-.fill {
-  position: absolute;
-  height: 100%;
-  background-color: #fcb6d9;
-  border-radius: 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-  transition: width 0.5s ease-in-out;
-}
-
-.food-drop {
-  position: fixed;
-  top: -50px;
-  width: 60px;
-  pointer-events: none;
-  animation: fallDown 2.5s linear forwards;
-  z-index: 20;
-}
-
-@keyframes fallDown {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
+  .stats h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.7rem;
+    font-weight: normal;
   }
-  90% {
-    opacity: 1;
+
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
   }
-  100% {
-    transform: translateY(110vh) rotate(180deg);
-    opacity: 0;
+
+  .icon {
+    font-size: 1.4rem;
+    width: 2rem;
+    text-align: center;
   }
-}
+
+  .stat-bar {
+    flex: 1;
+    background: #fffce6;
+    height: 1.2rem;
+    border-radius: 1rem;
+    position: relative;
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.1);
+  }
+
+  .fill {
+    position: absolute;
+    height: 100%;
+    background-color: #fcb6d9;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    transition: width 0.5s ease-in-out;
+  }
+/* linear animation speed is consistent forwards keeps the final state after finishing */
+  .food-drop {
+    position: fixed;
+    top: -50px;
+    width: 60px;
+    pointer-events: none;
+    animation: fallDown 2.5s linear forwards;
+    z-index: 20;
+  }
+  /* special rule for animation */
+  @keyframes fallDown {
+    /* start */
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    /* end */
+    100% {
+      transform: translateY(110vh) rotate(180deg);
+      opacity: 0;
+    }
+  }
 
 
 
